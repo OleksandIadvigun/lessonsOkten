@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="main_header">This is page for task5</h1>
+<ul id="created">
+    <li class="linkList listElement1"><a href="#">link1</a></li>
+    <li class="linkList listElement2"><a href="#">link2</a></li>
+    <li class="linkList listElement3"><a href="#">link3</a></li>
+</ul>
+
+<script>
+    let cars = [{name: 'porshe', production: 2015},
+        {name: 'kamaz', production: 2012},
+        {name: 'uaz', production: 2020}];
+
+    function addElement(a, b) {
+        let newEl = document.createElement(a);
+        newEl.innerHTML = b;
+        // document.body.appendChild(newEl)
+        let e = document.getElementById('created');
+        // e.prepend(newEl);
+        e.appendChild(newEl);
+    }
+
+    function addCarsFromArray(cars, b) {
+        let e = document.getElementById(b);
+        for (const argument of cars) {
+            let newEl = document.createElement('div');
+            let elForProps = document.createElement('p')
+            let elForProps2 = document.createElement('p')
+            elForProps.innerHTML = argument.name;
+            elForProps2.innerHTML = '  prod: ' + argument.production
+            e.appendChild(newEl);
+            newEl.appendChild(elForProps);
+            newEl.appendChild(elForProps2);
+        }
+    }
+
+
+    addElement('li', 'My new one element');
+    addCarsFromArray(cars, 'created');
+
+</script>
+
+</body>
+</html>

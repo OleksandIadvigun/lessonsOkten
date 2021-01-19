@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function arrayOut(array) {
+        console.log(array);
+    }
+
+    function addValueToArray(array) {
+        for (let i = 0; i < 20; i++) {
+            array.push(Math.round(Math.random() * 100));
+        }
+    }
+
+    function numbers3(a, b, c) {
+        let numb = 0;
+        if (a <= b) {
+            numb = a;
+        } else if (b <= a) {
+            numb = b;
+        }
+
+
+        if (c <= numb) {
+            numb = c;
+        }
+        return numb;
+    }
+
+    function smallestFromArr(array) {
+        let answer = null;
+        let le = array.length;
+        console.log(le);
+        for (let i = 0; i < array.length - 1; i++) {
+            if (array[i] <= array[i + 1]) {
+                answer = array[i];
+            } else {
+                answer = array[i + 1];
+            }
+        }
+        return answer;
+    }
+
+    let array = [];
+    addValueToArray(array);
+    arrayOut(array);
+    console.log(numbers3(3, 7, 2));
+    let l = smallestFromArr([{name: 'Jaja'}, {name: 'Tom'}]);
+    console.log(l);
+    let ff = [{name: 'Jaja'}, {name: 'Tom'}];
+
+    let s = [2, 0, 5, 8, 0, 2, 3];
+    let lenth = s.length;
+    for (let i = 0; i < lenth; i++) {
+        if (s[i] === 0) {
+            console.log(i);
+            s.splice(i, 1);
+            s.push(0);
+            lenth--;
+        }
+    }
+    console.log(s);
+
+    let usersWithId = [{id: 1, name: 'vasya', age: 31, status: false}, {
+        id: 2,
+        name: 'petya',
+        age: 30,
+        status: true
+    }, {id: 3, name: 'kolya', age: 29, status: true}, {id: 4, name: 'olya', age: 28, status: false},];
+    let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'}, {
+        user_id: 1,
+        country: 'Ukraine',
+        city: 'Ternopil'
+    }, {user_id: 2, country: 'Poland', city: 'Krakow'}, {user_id: 4, country: 'USA', city: 'Miami'},];
+
+    function joinTwoArrays(array1, array2) {
+        let array3 = [];
+        for (let i = 0; i < array1.length; i++) {
+            for (let j = 0; j < array2.length; j++) {
+                if (array1[i].id === array2[j].user_id) {
+                    console.log('IN');
+                    Object.assign(array1[i], array2[j]);
+                }
+            }
+        }
+        return array1;
+    }
+
+    console.log(joinTwoArrays(usersWithId, citiesWithId));
+
+
+    let car = {
+        model: 'porshe',
+        producer: 'WAG',
+        year: '2012',
+        maxSpeed: 230,
+        engine: 3.0,
+        drive: function () {
+            console.log("moving with a speed: " + this.maxSpeed)
+        },
+        info: function () {
+            console.log(this.model, this.producer, this.maxSpeed, this.year, this.engine);
+        },
+        increaseMaxSpeed: function (km) {
+            this.maxSpeed += km;
+        },
+        addDriver: function (nam, age) {
+            car.driver = {
+                name: nam,
+                age: age
+            };
+        }
+
+    };
+
+    car.info();
+    car.addDriver('Vasia', 25);
+    console.log(car);
+
+
+    function createCar(name, producer, maxSpeed) {
+        let car = {
+            name: name,
+            producer: producer,
+            maxSpeed: maxSpeed,
+            addDriver: function (a, b) {
+                car.driver = {
+                    name: a,
+                    age: b
+                }
+            }
+        }
+    }
+
+
+    class Car {
+        constructor(name, age, producer) {
+            this.name = name;
+            this.age = age;
+            this.producent = producer;
+        }
+
+        getInfo() {
+            console.log(this.name, this.age, this.producent);
+        }
+
+        addDriver(a, b) {                  // >>>>>?????
+             Car.driver = {
+                name: a,
+                age: b
+            }
+        }
+    }
+
+    let car1 = new Car('zil', 2016, 'WAZ');
+    car1.addDriver("Bob", 25);
+    car1.getInfo();
+    console.log(car1)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

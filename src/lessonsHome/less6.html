@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [2, 4, 6, 4, 2, 67, 767, 6, 545, 3, 0];
+    array.sort((a, b) => {
+        return b - a;
+    })
+
+    let f = array.filter((a) => {
+        return a % 3 === 0
+    });
+
+    console.log(f);
+
+    let fe = array.map((a) => {
+        return a * 3
+    })
+    console.log(fe);
+
+
+    let arr2 = ['hi', 'dfr', 'every', 'axa', 'figo'];
+    let s = arr2.sort().reverse();
+    console.log(s);
+
+    let filt = arr2.filter((a) => {
+        return a.length < 4;
+    })
+    console.log(filt);
+
+    let z = arr2.map((a) => {
+        return a += '!';
+    })
+    console.log(z);
+
+    let users = [{name: 'vasya', age: 31, status: false}, {name: 'petya', age: 30, status: true}, {
+        name: 'kolya',
+        age: 29,
+        status: true
+    }, {name: 'olya', age: 28, status: false}, {name: 'max', age: 30, status: true}, {
+        name: 'anya',
+        age: 31,
+        status: false
+    }, {name: 'oleg', age: 28, status: false}, {name: 'andrey', age: 29, status: true}, {
+        name: 'masha',
+        age: 30,
+        status: true
+    }, {name: 'olya', age: 31, status: false}, {name: 'max', age: 31, status: true}];
+
+    users.forEach((a) => {
+        a.id = Math.round(Math.random() * 1255);
+        return a.id
+    });
+
+    console.log(users);
+
+    function calc(a, b, callback) {
+        return callback(a, b);
+    }
+
+    let res = calc(12, 20, (a, b) => {
+        return a + b;
+    });
+    console.log(res);
+
+    let cars = [{
+        producer: "subaru",
+        model: "wrx",
+        year: 2010,
+        color: "blue",
+        type: "sedan",
+        engine: "ej204x",
+        volume: 2,
+        power: 400,
+        driver: {
+            name: 'Bil',
+            age: 28,
+            experience: 5
+        }
+    }, {
+        producer: "subaru",
+        model: "legacy",
+        year: 2007,
+        color: "silver",
+        type: "sedan",
+        engine: "ez30",
+        volume: 3,
+        power: 250,
+        driver: {
+            name: 'Bob',
+            age: 28,
+            experience: 5
+        }
+    }, {
+        producer: "subaru",
+        model: "tribeca",
+        year: 2011,
+        color: "white",
+        type: "jeep",
+        engine: "ej20",
+        volume: 2,
+        power: 300,
+        driver: {
+            name: 'Rob',
+            age: 40,
+            experience: 2
+        }
+    }, {
+        producer: "subaru",
+        model: "leone",
+        year: 1998,
+        color: "yellow",
+        type: "sedan",
+        engine: "ez20x",
+        volume: 2,
+        power: 140,
+        driver: {
+            name: 'Andrew',
+            age: 20,
+            experience: 1
+        }
+    }, {
+        producer: "subaru",
+        model: "impreza",
+        year: 2014,
+        color: "red",
+        type: "sedan",
+        engine: "ej204x",
+        volume: 2,
+        power: 200,
+        driver: {
+            name: 'Inga',
+            age: 30,
+            experience: 5
+        }
+    }, {
+        producer: "subaru",
+        model: "outback",
+        year: 2014,
+        color: "red",
+        type: "hachback",
+        engine: "ej204",
+        volume: 2,
+        power: 165,
+        driver: {
+            name: 'Ewa',
+            age: 28,
+            experience: 8
+        }
+    }, {
+        producer: "bmw",
+        model: "115",
+        year: 2013,
+        color: "red",
+        type: "hachback",
+        engine: "f15",
+        volume: 1.5,
+        power: 120,
+        driver: {
+            name: 'Dawid',
+            age: 31,
+            experience: 3
+        }
+    }, {
+        producer: "bmw",
+        model: "315",
+        year: 2010,
+        color: "white",
+        type: "sedan",
+        engine: "f15",
+        volume: 1.5,
+        power: 120,
+        driver: {
+            name: 'Michael',
+            age: 28,
+            experience: 10
+        }
+    }, {
+        producer: "bmw",
+        model: "650",
+        year: 2009,
+        color: "black",
+        type: "coupe",
+        engine: "f60",
+        volume: 6,
+        power: 350,
+        driver: {
+            name: 'Greg',
+            age: 58,
+            experience: 27
+        }
+    }, {
+        producer: "bmw",
+        model: "320",
+        year: 2012,
+        color: "red",
+        type: "sedan",
+        engine: "f20",
+        volume: 2,
+        power: 180,
+        driver: {
+            name: 'Ros',
+            age: 48,
+            experience: 9
+        }
+    }, {
+        producer: "mercedes",
+        model: "e200",
+        year: 1990,
+        color: "silver",
+        type: "sedan",
+        engine: "eng200",
+        volume: 2,
+        power: 180,
+        driver: {
+            name: 'Andy',
+            age: 60,
+            experience: 22
+        }
+    }, {
+        producer: "mercedes",
+        model: "e63",
+        year: 2017,
+        color: "yellow",
+        type: "sedan",
+        engine: "amg63",
+        volume: 3,
+        power: 400,
+        driver: {
+            name: 'Garry',
+            age: 38,
+            experience: 7
+        }
+    }, {
+        producer: "mercedes",
+        model: "c250",
+        year: 2017,
+        color: "red",
+        type: "sedan",
+        engine: "eng25",
+        volume: 2.5,
+        power: 230,
+        driver: {
+            name: 'Mat',
+            age: 35,
+            experience: 3
+        }
+    }];
+    let filtered = cars.filter((a) => {
+        return a.volume > 2 && a.power > 250;
+    })
+
+    function increasePower(cars) {
+        for (let i = 0; i < cars.length / 2; i++) {
+            cars[i].power *= 1.1;
+        }
+    };
+
+    console.log(filtered);
+    increasePower(cars);
+    console.log(cars);
+
+
+    let arr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14];
+
+    function giveIndex(array, input) {
+        let min = -1;
+        let max = -1;
+        for (let i = 0; i < array.length; i++) {
+            if (input === array[i] && (array[i - 1] !== input) || array[i - 1] === null) {
+                min = i;
+            }
+            else if (input === array[i] && (array[i + 1] !== input) || array[i + 1] === null) {
+                max = i;
+            }
+        }
+        console.log('min index: ' + min)
+        console.log('max index: ' + max)
+    }
+
+    giveIndex(arr, 7);
+
+</script>
+</body>
+</html>

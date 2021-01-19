@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #textarea {
+            height: 200px;
+            widht: 400px;
+            background: skyblue;
+        }
+
+        #submit {
+            background: beige;
+        }
+
+        .inp {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="textarea"></div>
+<!--<input id = "inp"  >-->
+
+
+<form name="my">
+    <h1>Input your data</h1>
+    <!--    <input id="name" value="input name">-->
+    <!--    <input id="age" value="input age">-->
+    <!--    <input id="check" type="checkbox">-->
+    <!--    <input id="date" type="date">-->
+    <!--    <input id="text" type="text" value=" input some text">-->
+    <!--    <button id ='submit'> submit </button>-->
+    <!--    <br>-->
+    <!--    <button id ='back'> back </button>-->
+    <!--    <button id ='next'> next </button>-->
+
+    <div>name:
+        <input class="inp" id="name" value="">
+    </div>
+    <div>phone number:
+        <input class="inp" id="phone_number" value=38...>
+    </div>
+    <div>birthday:
+        <input class="inp" id="date" type="date">
+    </div>
+    <div>email:
+        <input class="inp" id="email" type="email" value="">
+    </div>
+    <div>company:
+        <input class="inp" id="company" value=''>
+    </div>
+    <br>
+    <button id='submit'> submit</button>
+    <button id='edit'> edit</button>
+
+
+</form>
+
+<script>
+    let textar = document.getElementById('textarea');
+    // textar.onmousemove = function (a){
+    //     console.log(a.clientX , a.clientY);
+    //     this.style.background = `rgb(${a.clientX},${a.clientY},${a.clientX})`;
+    // }
+    // let inp = document.getElementById('inp');
+    // inp.oninput = function (e){
+    //     e.preventDefault();
+    //     textar.innerText = this.value;
+    // }
+
+
+    // let n = null;
+    // let a = null;
+    // let t = null;
+    // try {
+    //     n = localStorage.getItem('name');
+    //     a = localStorage.getItem('age');
+    //     t = localStorage.getItem('text');
+    // } catch {
+    // }
+    // ;
+    //
+    // let name = document.getElementById('name');
+    // if (n != null) {
+    //     name.value = n
+    // }
+    //
+    //
+    // name.oninput = function () {
+    //     let textValue = name.innerText = this.value;
+    //     localStorage.setItem('name', textValue);
+    // }
+    //
+    // let age = document.getElementById('age');
+    // if (a != null) {
+    //     age.value = a
+    // }
+    // age.oninput = function () {
+    //     let textValue = name.innerText = this.value;
+    //     localStorage.setItem('age', textValue);
+    // }
+    //
+    // let text = document.getElementById('text');
+    // if (n != null) {
+    //     text.value = t;
+    // }
+    // let submit = document.getElementById('submit');
+    // submit.onclick = function (){
+    //     let textValue = text.innerText = text.value;
+    //     localStorage.setItem('text', textValue);
+    // }
+    //
+    // let back = document.getElementById('back');
+    // back.onclick = function (){
+    //     window.history.back();
+    // }
+    //
+
+    let user = {
+        name: "",
+        phoneNumber: null,
+        email: '',
+        company: '',
+        dateOfBirthday: null
+
+    }
+
+    let name = document.getElementById('name');
+    let phone = document.getElementById('phone_number');
+    let birthday = document.getElementById('date');
+    let company = document.getElementById('company');
+    let email = document.getElementById('email');
+    let submit = document.getElementById('submit');
+    let edit = document.getElementById('edit');
+
+    submit.onclick = function () {
+        user.name = name.value;
+        user.phoneNumber = phone.value;
+        user.dateOfBirthday = birthday.value;
+        user.email = email.value;
+        user.company = company.value;
+        localStorage.setItem('user', JSON.stringify(user))
+    }
+    //todo                 Пропадает через пару секунд
+    edit.addEventListener('click', function () {
+        let userFromLS = JSON.parse(localStorage.getItem('user'));
+        name.value = userFromLS.name;
+        phone.value = userFromLS.phoneNumber;
+        birthday.value = userFromLS.dateOfBirthday;
+        email.value = userFromLS.email;
+        company.value = userFromLS.company;
+    })
+
+
+</script>
+</body>
+</html>
