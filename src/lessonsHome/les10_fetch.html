@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let xml = new XMLHttpRequest();
+    // xml.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+    // // xml.open('GET', 'http://localhost:3000/users', true ); // todo  ошибка через mockoon
+    // xml.send();
+    // xml.onload = function () {
+    //     // console.log(xml.response);
+    // }
+    // let resp = xml.response;
+    // let userslist = JSON.parse(resp);   // todo    не парсит !
+    // console.log(resp)
+    // for (const user of userslist) {
+    //     let di = document.createElement('div');
+    //     di.innerText = user.name + " some  " + user.city;
+    //     document.body.appendChild(di);
+    // }
+
+
+    let prom = fetch('https://jsonplaceholder.typicode.com/users');
+    prom.then(value =>{
+        return value.json()})
+.then(value => {
+    console.log(value);
+    for (const user of value) {
+            let di = document.createElement('div');
+            di.innerText = user.id + user.name + "   " + user.email;
+            document.body.appendChild(di);
+        }
+})
+</script>
+</body>
+</html>

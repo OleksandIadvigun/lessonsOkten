@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let a = 10;
+    // setTimeout(function (){
+    //     console.log(a + 10)
+    // },2000);
+    // console.log('Start')
+
+    let nextProm = new Promise(resolve => {
+        setTimeout(() => {
+            resolve('Next promise');
+        }, 2000)
+    })
+
+    let prom = new Promise(function (resolve, reject) {
+
+        setTimeout(function () {
+            let someAction = true;
+            if (someAction) {
+                resolve("Everything is good")
+            } else {
+                reject("Rejected this one")
+            }
+        }, 1000)
+    })
+
+    prom.then(value => {
+        console.log(value);
+        return nextProm;
+    })
+        .then(value => {
+            console.log(value);
+        })
+
+
+    function getMyPosition() {
+        return new Promise(resolve => {
+            navigator.geolocation.getCurrentPosition(function (p) {
+                let position = {lat: p.coords.latitude, lon: p.coords.longitude}
+                resolve(position);
+            })
+        })
+    }
+
+    //getMyPosition().then(value => console.log(value));
+    async  function funk (){
+      let answer =  await getMyPosition();
+      console.log(answer);
+    }
+
+    funk();
+
+</script>
+</body>
+</html>
